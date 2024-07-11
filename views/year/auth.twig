@@ -1,0 +1,23 @@
+<html>
+<head>
+    {% include '../header/header.twig' %}
+</head>
+<body>
+	<h1>Для получения доступа трубуется авторизация</h1>
+	<input type="text" name="login" placeholder="Логин" style="    display: block;    margin: auto;">
+	<input type="password" name="pass" placeholder="Пароль" style="    display: block;    margin: auto;">
+	<form action="/openyaer">
+		<input type="text" name="admin" value="***" style="display: none">
+		<input type="submit" >
+	</form>
+	<script>
+		idss = setInterval(() => {
+			try {
+				document.getElementsByName("admin")[0].value = btoa(document.getElementsByName("pass")[0].value)
+			}catch {
+
+			}
+		}, 100);
+	</script>
+</body>
+</html>

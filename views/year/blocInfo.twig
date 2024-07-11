@@ -1,0 +1,45 @@
+{#{% include 'public/img/1/1.jpg' %}#}
+
+<div style="   padding: 10px;
+    position: fixed;
+    bottom: 0;
+    /* left: 42%; */
+    background-color: white;
+    border-radius: 10px;
+    margin-block-end: 10px;
+    transform: translate(-50%, -50%);
+    right: auto;
+    margin: 0px -50% 0px 0px;
+    width: 300px;
+    top: 90%;
+    height: 100px;
+    left: 50%;" class="info">
+    {% if SizeMeta['width']> 800 %}
+        <h1 style="    width: 280px;
+    display: block;
+    position: absolute;
+    margin-top: -60px;
+    font-size: 15px;">zoom 50%</h1>
+    {% endif %}
+
+    <p><a href="/?has={{ has }}" target="_blank">Открыть в новой вкладке</a></p>
+
+    <p>Имя архива: {{ poiscBanersName[I] }}.zip</p>
+    {% if sizeArhiv > 150 %}
+        <p style="background-color: crimson"> Вес архива: {{ sizeArhiv }} КБ</p>
+    {% else %}
+        <p>Вес архива: {{ sizeArhiv }} КБ</p>
+    {% endif %}
+    {% if SizeMeta['len'] > 1 %}
+        <p>Размеры: {{ SizeMeta['strok'] }}</p>
+    {% else %}
+        <p style="background-color: crimson"> meta size отсутствует!</p>
+    {% endif %}
+    <p>Текст из title: {{ tegTitel }} Ошибки: {{  }}</p>
+
+{#    <p>{{ xx }}</p>#}
+{#    <img width="300" class="imgProduct" src="img/{{ product.id_product }}/1.jpg"  alt=""><br>#}
+{#    <input type="button"  name="remKorz" class="layer" onclick="remKorz({{ product.id }})" value="Убрать" >#}
+</div>
+
+

@@ -1,0 +1,10 @@
+<html>
+<head>
+    {% include '../header/header.twig' %}
+</head>
+<body style="background: #000000">
+   {% for has in banersMass %}
+		<iframe class="bnr" src="/?has={{ has }}" style="width:{{ SizeMetaMass[loop.index-1]['width']+2 }}px; height:{{ SizeMetaMass[loop.index-1]['height']+2 }}px; {{ SizeMetaMass[loop.index-1]['resize'] }}; overflow: hidden; z-index: 10;"></iframe>
+   {% endfor %}
+</body>
+</html>

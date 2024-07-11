@@ -1,0 +1,67 @@
+{#{% include 'public/img/1/1.jpg' %}#}
+<div class="section" style="
+    {% if plo %}
+        {% if ban == "" %}
+            {% if loop.index-1 == I %}
+                    border: 2px solid #000;
+                    background-color: antiquewhite;
+            {% endif %}
+        {% endif %}
+    {% endif %}
+">
+    {% if plo %}
+        {% if ban == "" %}
+            <div onclick=location.href=(location.href.split('&I=')[0]+'&I={{ loop.index-1 }}') style="display: inline-block; width: 250px; height: 25px; cursor: pointer;">
+                <h4>{{ xxx }}.zip</h4>
+            </div>
+            <input type="button" onclick="openYaer('{{xxx}}')">
+        {% else %}
+            <div onclick="openYaer('{{xxx}}')" style="display: inline-block; width: 300px; height: 25px; cursor: pointer;">
+				<h4>{{ xxx }}</h4>
+            </div>
+        {% endif %}
+    {% else %}
+        <div onclick="openYaer('{{xxx}}')" style="display: inline-block; width: 300px; height: 25px; cursor: pointer;">
+            <h4>{{ xxx }}</h4>
+        </div>
+    {% endif %}
+
+{#        <div onclick="openYaer('{{xxx}}')" style="display: inline-block; width: 250px; height: 25px; cursor: pointer;">#}
+{#        	<h4>{{ xxx }}</h4>#}
+{#        </div>#}
+
+{#        <input type="button"  value="{{ xxx }}" >#}
+{#        <input type="button" onclick="remPoz('{{xxx}}')" value="Удалить" style="float: right;">#}
+{#        <input type="button" onclick="rename('{{xxx}}')" value="Переименовать" style="float: right;"/>#}
+{#        <input type="button"  value="скачать" style="float: right;"/>#}
+    {% if admin > 0 %}
+        <div onclick="remPoz('{{xxx}}')" style="display: inline-block;cursor: pointer;">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1280" preserveAspectRatio="xMidYMid meet" width="25px" height="25px" version="1.0">
+                   <title data-v-56efb84a="" id="unique-id-123">Удалить</title>
+                   <g fill="#000000" stroke="none" transform="translate(0 1280) scale(0.1 -0.1)">
+                                <path d="M 5675 9896 c -26 -11 -37 -32 -105 -202 l -76 -189 l -987 -5 c -970 -5 -987 -5 -1006 -25 c -18 -19 -46 -212 -137 -945 c -5 -36 -2 -50 16 -73 l 21 -27 l 3136 2 l 3136 3 l 20 27 l 20 27 l -63 483 c -53 407 -65 486 -82 503 c -18 20 -35 20 -1005 25 l -987 5 l -53 130 c -106 261 -102 253 -135 264 c -48 17 -1673 14 -1713 -3 Z" /><path d="M 3779 8209 c -25 -25 -26 11 11 -609 c 11 -184 31 -528 45 -765 c 26 -456 158 -2721 200 -3435 l 25 -425 l 25 -22 l 26 -23 l 2424 0 l 2424 0 l 25 23 c 24 20 26 31 36 162 c 9 127 49 689 115 1650 c 24 344 49 701 115 1635 c 38 544 109 1566 117 1691 c 5 89 4 98 -16 118 l -21 21 l -649 0 l -650 0 l -20 -26 l -21 -27 l 0 -2199 l 0 -2199 l -147 3 l -148 3 l -3 2204 c -2 2034 -3 2206 -19 2223 c -15 17 -44 18 -483 18 c -462 0 -467 0 -486 -21 c -19 -21 -19 -74 -22 -2225 l -2 -2204 l -145 0 l -145 0 l -2 1948 c -2 1071 -3 2062 -3 2203 c 0 239 -1 258 -19 278 c -19 21 -23 21 -516 21 c -492 0 -497 0 -516 -21 c -19 -21 -19 -74 -22 -2225 l -2 -2204 l -145 0 l -145 0 l -2 2204 c -3 2151 -3 2204 -22 2225 c -19 21 -22 21 -608 21 l -588 0 l -21 -21 Z" />
+                        </g>
+                </svg>
+        </div>
+        <div onclick="rename('{{xxx}}')" style="display: inline-block;cursor: pointer;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 1280 1000" preserveAspectRatio="xMidYMid meet">
+                    <title data-v-56efb84a="" id="unique-id-123">Переименовать</title>
+                    <g transform="translate(0.000000,1075.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                                <path d="M6720 9780 c-388 -533 -708 -969 -711 -970 -4 0 -78 44 -165 99 -296 183 -414 243 -599 304 -455 149 -848 66 -1174 -247 -102 -99 -149 -162 -566 -756 -506 -721 -1240 -1763 -2400 -3405 -540 -765 -998 -1415 -1017 -1445 -148 -232 -103 -497 123 -721 234 -233 609 -362 956 -329 58 5 108 9 109 7 2 -1 -46 -69 -106 -151 -99 -135 -110 -155 -124 -220 -9 -39 -52 -237 -96 -441 -101 -462 -170 -782 -259 -1185 -38 -173 -68 -316 -68 -317 1 0 409 230 907 513 l905 515 199 272 c109 149 204 281 212 292 14 19 15 19 72 -12 67 -36 182 -79 267 -98 135 -32 239 -36 629 -25 209 6 1310 33 2446 60 2000 48 2468 59 3390 80 239 6 624 15 855 20 231 5 769 17 1195 25 426 8 848 18 938 21 l162 6 0 1699 0 1699 -68 0 c-291 0 -833 96 -1097 195 -186 69 -154 50 -1745 1080 -1392 902 -2423 1566 -2425 1563 -36 -55 -70 -98 -77 -98 -5 0 -6 6 -2 13 5 6 322 443 706 970 384 527 699 962 701 967 1 6 -1362 993 -1368 990 0 0 -317 -437 -705 -970z m-746 -4340 c146 -193 508 -705 544 -770 61 -110 89 -242 72 -344 -29 -178 -167 -330 -405 -446 -141 -69 -199 -89 -400 -140 -361 -92 -697 -142 -1238 -185 -213 -17 -280 -19 -275 -7 2 4 347 480 767 1057 l765 1048 34 -39 c18 -21 80 -100 136 -174z"/>
+                        </g>
+                </svg>
+        </div>
+        <div onclick="save('{{xxx}}')" style="display: inline-block;cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 25 25" class="svg-btn"><title data-v-56efb84a="" id="unique-id-123">Скачать</title> <path data-v-56efb84a="" d="M20.7999 10.8745C20.7999 10.4056 20.5654 10.1711 20.0965 10.1711H16.4389V4.40338C16.4389 3.93446 16.1575 3.7 15.5948 3.7H9.40506C8.84235 3.7 8.561 3.93446 8.561 4.40338V10.1711H4.9034L4.34069 10.3118C4.15312 10.6869 4.15312 11.0621 4.34069 11.4372L11.9372 19.0338C12.3124 19.4089 12.6875 19.4089 13.0627 19.0338L20.6592 11.4372L20.7999 10.8745ZM14.8915 5.10677V10.8745C14.8915 11.3434 15.1259 11.5779 15.5948 11.5779H18.2677L12.4999 17.3457L6.7322 11.5779H9.40506C9.87398 11.5779 10.1084 11.3434 10.1084 10.8745V5.10677H14.8915ZM20.7999 20.5812C20.7999 20.1123 20.5654 19.8778 20.0965 19.8778H4.9034C4.43447 19.8778 4.20001 20.1123 4.20001 20.5812C4.20001 21.0501 4.43447 21.2846 4.9034 21.2846H20.0965C20.5654 21.2846 20.7999 21.0501 20.7999 20.5812Z" fill="#999999" style="fill: #000;"></path></svg>
+        </div>
+    {% else %}
+        <div onclick="save('{{xxx}}')" style=" display: inline-block;cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 25 25" class="svg-btn"><title data-v-56efb84a="" id="unique-id-123">Скачать</title> <path data-v-56efb84a="" d="M20.7999 10.8745C20.7999 10.4056 20.5654 10.1711 20.0965 10.1711H16.4389V4.40338C16.4389 3.93446 16.1575 3.7 15.5948 3.7H9.40506C8.84235 3.7 8.561 3.93446 8.561 4.40338V10.1711H4.9034L4.34069 10.3118C4.15312 10.6869 4.15312 11.0621 4.34069 11.4372L11.9372 19.0338C12.3124 19.4089 12.6875 19.4089 13.0627 19.0338L20.6592 11.4372L20.7999 10.8745ZM14.8915 5.10677V10.8745C14.8915 11.3434 15.1259 11.5779 15.5948 11.5779H18.2677L12.4999 17.3457L6.7322 11.5779H9.40506C9.87398 11.5779 10.1084 11.3434 10.1084 10.8745V5.10677H14.8915ZM20.7999 20.5812C20.7999 20.1123 20.5654 19.8778 20.0965 19.8778H4.9034C4.43447 19.8778 4.20001 20.1123 4.20001 20.5812C4.20001 21.0501 4.43447 21.2846 4.9034 21.2846H20.0965C20.5654 21.2846 20.7999 21.0501 20.7999 20.5812Z" fill="#999999" style="fill: #000;"></path></svg>
+        </div>
+    {% endif %}
+
+{#    <img width="300" class="imgProduct" src="img/{{ product.id_product }}/1.jpg"  alt=""><br>#}
+{#    <input type="button"  name="remKorz" class="layer" onclick="remKorz({{ product.id }})" value="Убрать" >#}
+</div>
+
+

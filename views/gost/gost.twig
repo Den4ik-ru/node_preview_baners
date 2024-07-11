@@ -1,0 +1,99 @@
+<html>
+<head>
+    {% include '../header/header.twig' %}
+</head>
+<body>
+{#<iframe src="http://localhost:3000/zip"></iframe>#}
+
+{#<h>!!!</h>#}
+{#{{ has }}#}
+{#<h>!!!</h>#}
+
+<br>
+{% include 'year/blocInfo.twig' %}
+<br>
+{#resize: horizontal; width: 666px; height: 777px;#}
+
+	<div id="container">
+		<div id="column1">
+		
+			{#<p>Колонка 1</p>#}
+				<input type="button" onclick="location.href='./openyaer'"   value="..." />
+			{% if god %}
+				<input type="button" onclick="location.href='./openyaer?god={{god}}&I=0'"   value="{{ god }}" />
+			{% endif %}
+			{% if mes %}
+				<input type="button" onclick="location.href='./openyaer?god={{god}}&mes={{mes}}&I=0'" value="{{ mes }}" />
+			{% endif %}
+			{% if com %}
+				<input type="button" onclick="location.href='./openyaer?god={{god}}&mes={{mes}}&com={{com}}&I=0'" value="{{ com }}" />
+			{% endif %}
+			{% if val %}
+				<input type="button" style="background-color: deepskyblue" onclick="location.href='./openyaer?god={{god}}&mes={{mes}}&com={{com}}&val={{val}}&I=0'" value="{{ val }}" />
+			{% endif %}
+			{% if tov %}
+				<input type="button" onclick="location.href='./openyaer?god={{god}}&mes={{mes}}&com={{com}}&val={{val}}&tov={{tov}}&I=0'" value="{{ tov }}" />
+			{% endif %}
+			{% if plo %}
+				<input type="button" onclick="location.href='./openyaer?god={{god}}&mes={{mes}}&com={{com}}&val={{val}}&tov={{tov}}&plo={{plo}}&I=0'" value="{{ plo }}" />
+			{% endif %}
+			{% if ban %}
+				{#<iframe src="" style="width: 1456px; height: 180px; border: none; position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.855769);"></iframe>#}
+			{% endif %}
+			<br>
+			{% if val %}
+				{% if tov == "" %}
+					<form action="/upload?href={{href}}" method="post" enctype="multipart/form-data">
+						<label>Файл</label><br>
+						<input type="file" name="filedata" /><br><br>
+						<input type="submit" value="Send" />
+					</form>
+				{% endif %}
+			{% endif %}
+			{#<input type="button" onclick="location.href='/addyaer?href={{href}}'"   value="Создать папку" />#}
+			<br><br>
+			<div class="container">
+				{% if x %}
+					{% for xxx in x %}
+
+						{% include 'gost/products.twig' %}
+
+					{% endfor %}
+				{% else %}
+					<h2>Пусто</h2>
+				{% endif %}
+			</div>
+			
+		</div>
+		
+		<div id="column2">
+
+			{#<p>Колонка 2</p>#}
+
+			{% if has %}
+				<iframe id="bnr" src="/?has={{ has }}" style=" width:{{ SizeMeta['width']+10 }}px; height:{{ SizeMeta['height']+10 }}px; {{ SizeMeta['resize'] }} overflow: hidden; /*position: absolute;*/ "></iframe>
+				<br>
+			{% endif %}
+			
+		</div>
+
+		<div id="column3">
+		
+			{#<p>Колонка 3</p>#}
+			<br>
+			<input type="button" onclick="openYaerPlys(-1)" value="<-" />
+			<input type="button" onclick="openYaerPlys(1)" value="->" />
+			<br>
+			<br>
+			{% for i in poisc %}
+				{% if loop.index-1 == I %}
+					<input type="button" style="background-color: deepskyblue;" onclick="location.href=(location.href.split('&I=')[0]+'&I={{ loop.index-1 }}')" value="{{ poiscBanersName[loop.index-1] }}" />
+				{% else %}
+					<input type="button"  onclick="location.href=(location.href.split('&I=')[0]+'&I={{ loop.index-1 }}')" value="{{ poiscBanersName[loop.index-1] }}" />
+				{% endif %}
+			{% endfor %}
+			
+		</div>
+	</div>
+</body>
+</html>
